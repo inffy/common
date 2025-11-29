@@ -18,10 +18,10 @@ check:
 fix:
     #!/usr/bin/bash
     find . -type f -name "*.just" | while read -r file; do
-    	echo "Checking syntax: $file"
+    	echo "Fixing syntax: $file"
     	{{ just }} --unstable --fmt -f $file
     done
-    echo "Checking syntax: Justfile"
+    echo "Fixing syntax: Justfile"
     {{ just }} --unstable --fmt -f Justfile || { exit 1; }
 
 # Inspect the directory structure of an OCI image
