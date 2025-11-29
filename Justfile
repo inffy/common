@@ -9,7 +9,7 @@ check:
     	just --unstable --fmt --check -f $file
     done
     echo "Checking syntax: Justfile"
-        just --unstable --fmt --check -f Justfile
+    just --unstable --fmt --check -f Justfile
 
 # Inspect the directory structure of an OCI image
 tree IMAGE="localhost/aurora-common:latest":
