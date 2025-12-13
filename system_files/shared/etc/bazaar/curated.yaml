@@ -216,6 +216,7 @@ rows:
         banner-text-valign: center
         banner-height: 400
         appids:
+          - com.collaboraoffice.Office
           - com.slack.Slack
           - md.obsidian.Obsidian
           - org.onlyoffice.desktopeditors
