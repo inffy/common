@@ -34,7 +34,7 @@ benchmark:
 # Configure Aurora-CLI Terminal Experience with Brew
 [group('System')]
 aurora-cli:
-    @/usr/libexec/ublue-bling
+    @/usr/bin/ublue-bling
 
 # alias for install-fonts
 aurora-fonts:
