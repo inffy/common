@@ -4,8 +4,8 @@ set ignore-comments := true
 _default:
     #!/usr/bin/bash
     source /usr/lib/ujust/libformatting.sh
-    echo "$(Urllink "https://docs.getaurora.dev/guides/basic-usage/#using-ujust-in-aurora" "Click here to view the Aurora ujust documentation")"
-    /usr/bin/ujust --list --list-heading $'Available commands:\n' --list-prefix $' - '
+    echo "https://docs.getaurora.dev/guides/basic-usage/#using-ujust-in-aurora"
+    ujust --list --list-heading $'Available commands:\n' --list-prefix $' - '
 
 # Imports
 # shared with bluefin
