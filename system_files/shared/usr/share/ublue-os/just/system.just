@@ -490,3 +490,8 @@ toggle-software-store ACTION="":
         exit 0
     fi
 
+# TPM2 auto-unlock toggle
+[group('System')]
+toggle-tpm2:
+    @/usr/bin/luks-tpm2-autounlock
+
