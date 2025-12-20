@@ -3,7 +3,14 @@
   "extends": [
     "github>ublue-os/renovate-config:org-inherited-config"
   ],
-
+  "packageRules": [
+    {
+      "matchPackageNames": ["ghcr.io/projectbluefin/common"],
+      "automerge": true,
+      "automergeType": "pr",
+      "matchUpdateTypes": ["digest", "pin", "patch", "minor", "major"]
+    }
+  ],
   "regexManagers": [
     {
       "fileMatch": ["^Containerfile$"],
