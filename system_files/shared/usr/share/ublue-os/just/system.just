@@ -499,7 +499,7 @@ toggle-tpm2:
 # Factory reset this device (experimental)
 [group('System')]
 powerwash:
-    #!/usr/bin/bash
+    #!/usr/bin/env bash
     FIRST_CONFIRMATION=$(gum choose --header='Warning: This is an experimental feature that will reset this device to its factory state.' "No" "Yes - wipe this machine")
     if [[ "$FIRST_CONFIRMATION" != "Yes - wipe this machine" ]]; then
         echo "Powerwash cancelled."
