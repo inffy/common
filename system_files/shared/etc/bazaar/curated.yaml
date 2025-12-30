@@ -198,6 +198,7 @@ rows:
             - io.github.mhogomchungu.media-downloader
             - com.github.wwmm.easyeffects
             - me.timschneeberger.jdsp4linux
+            - org.jellyfin.JellyfinDesktop
 
   - sections:
     - expand-horizontally: true
