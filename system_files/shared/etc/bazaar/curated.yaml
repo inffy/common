@@ -45,6 +45,11 @@ css: |
     color: var(--fg-color);
   }
 
+  .global-section app-tile-installed-pill {
+    background-color: @success_bg_color;
+    color: var(--fg-color);
+  }
+
   .rec-section {
     background: linear-gradient(0deg, #80cfe3, #54a3d8);
   }
@@ -97,8 +102,16 @@ css: |
     background-image: linear-gradient(to right bottom, #8b6fab, #7a77b3, #687fb6, #5985b6, #4d8bb3, #4892b4, #4698b3, #499eb1, #4da8b3, #55b2b4, #61bbb4, #6fc4b3);
   }
 
+  .dev-section app-tile-installed-pill {
+    background-color: #cbabff;
+  }
+
   .dev-section-dark {
     background: linear-gradient(to right bottom, #8b6fab, #7a68a6, #6861a0, #555a9a, #405494, #315c9a, #1f649e, #006ca1, #0084ac, #089ab1, #43b0b2, #6fc4b3);
+  }
+
+  .dev-section-dark app-tile-installed-pill {
+    background-color: #084152;
   }
 
   .ai-section {
@@ -125,7 +138,7 @@ rows:
           banner-fit: cover
           banner-text-halign: start
           banner-text-valign: center
-          banner-height: 400
+          banner-height: 550
           appids:
             - io.github.DenysMb.Kontainer
             - com.pixelomer.ShijimaQt
@@ -155,7 +168,7 @@ rows:
           banner-fit: cover
           banner-text-halign: end
           banner-text-valign: center
-          banner-height: 400
+          banner-height: 550
           appids:
             - org.kde.krita
             - org.ardour.Ardour
@@ -184,7 +197,7 @@ rows:
           banner-fit: cover
           banner-text-halign: start
           banner-text-valign: center
-          banner-height: 400
+          banner-height: 550
           appids:
             - org.kde.elisa
             - com.spotify.Client
@@ -214,7 +227,7 @@ rows:
         banner-fit: cover
         banner-text-halign: end
         banner-text-valign: center
-        banner-height: 400
+        banner-height: 550
         appids:
           - com.collaboraoffice.Office
           - com.slack.Slack
@@ -243,7 +256,7 @@ rows:
           banner-fit: cover
           banner-text-halign: start
           banner-text-valign: center
-          banner-height: 400
+          banner-height: 550
           appids:
             - com.valvesoftware.Steam
             - com.valvesoftware.SteamLink
@@ -277,7 +290,7 @@ rows:
           banner-fit: cover
           banner-text-halign: end
           banner-text-valign: center
-          banner-height: 400
+          banner-height: 550
           appids:
             - app.drey.Warp
             - org.localsend.localsend_app
@@ -312,7 +325,7 @@ rows:
           banner-fit: cover
           banner-text-halign: start
           banner-text-valign: center
-          banner-height: 400
+          banner-height: 700
           appids:
             - io.podman_desktop.PodmanDesktop
             - io.kinvolk.Headlamp
@@ -342,7 +355,7 @@ rows:
           banner-fit: cover
           banner-text-halign: start
           banner-text-valign: center
-          banner-height: 500
+          banner-height: 550
           appids:
             - com.jeffser.Alpaca
             - io.github.qwersyk.Newelle
