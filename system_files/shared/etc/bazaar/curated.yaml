@@ -45,6 +45,11 @@ css: |
     color: var(--fg-color);
   }
 
+  .global-section app-tile-installed-pill {
+    background-color: @success_bg_color;
+    color: var(--fg-color);
+  }
+
   .rec-section {
     background: linear-gradient(0deg, #80cfe3, #54a3d8);
   }
