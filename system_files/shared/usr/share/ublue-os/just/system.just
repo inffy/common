@@ -14,7 +14,6 @@
 [group('System')]
 benchmark:
     #!/usr/bin/env bash
-    source /usr/lib/ujust/ujust.sh
     if ! type -P "stress-ng" &>/dev/null ; then
         if gum confirm "Stress does not seem to be on your path, do you wish to install it?" ; then
             set -eu
@@ -192,7 +191,6 @@ rebase-helper:
 toggle-tailscale:
     #!/bin/bash
     set -euo pipefail
-    source /usr/lib/ujust/ujust.sh
     source /usr/lib/os-release
 
     TAILSCALED_STATUS="$(systemctl is-enabled tailscaled || true )"
@@ -209,7 +207,7 @@ toggle-tailscale:
 
     if [ "$TAILSCALED" == "Installed" ]; then
         echo "Enable or disable Tailscale?"
-        TS_OPTION=$(Choose Enable Disable)
+        TS_OPTION=$(gum choose "Enable" "Disable")
 
         if [ "$TS_OPTION" = "Enable" ]; then
             systemctl enable --now tailscaled
@@ -232,8 +230,6 @@ toggle-tailscale:
 [group('System')]
 toggle-dinosaurs hemisphere="north":
     #!/bin/bash
-    source /usr/lib/ujust/ujust.sh
-
     if [[ "{{ hemisphere }}" != "north" && "{{ hemisphere }}" != "south" ]]; then
         echo "Error: Invalid hemisphere '{{ hemisphere }}'. Must be 'north' or 'south'."
         exit 1
@@ -245,7 +241,7 @@ toggle-dinosaurs hemisphere="north":
 
     if [ "$DINOSAUR_STATUS" == "enabled" ]; then
         echo "Disable Bluefin dinosaur wallpapers?"
-        OPTION=$(Choose Disable Cancel)
+        OPTION=$(gum choose "Disable" "Cancel")
         if [ "$OPTION" = "Disable" ]; then
             systemctl --user disable --now bluefin-wallpaper@{{ hemisphere }}.service
 
@@ -265,7 +261,7 @@ toggle-dinosaurs hemisphere="north":
         fi
     else
         echo "Enable Bluefin dinosaur wallpapers for the {{ hemisphere }}ern hemisphere?"
-        OPTION=$(Choose Enable Cancel)
+        OPTION=$(gum choose "Enable" "Cancel")
         if [ "$OPTION" = "Enable" ]; then
             mkdir -p ~/.local/share/wallpapers/Bluefin
             systemctl --user enable --now bluefin-wallpaper@{{ hemisphere }}.service
@@ -356,7 +352,6 @@ toggle-iwd:
 [group('Apps')]
 setup-sunshine ACTION="":
     #!/usr/bin/bash
-    source /usr/lib/ujust/ujust.sh
     SERVICE_STATE="$(systemctl is-enabled --user sunshine.service)"
     OPTION={{ ACTION }}
     if [ "$SERVICE_STATE" == "enabled" ]; then
@@ -374,7 +369,7 @@ setup-sunshine ACTION="":
       exit 0
     elif [ "$OPTION" == "" ]; then
       echo "Service is $SERVICE_STATE"
-      OPTION=$(Choose "Enable" "Disable" "Open Portal" "Exit")
+      OPTION=$(gum choose "Enable" "Disable" "Open Portal" "Exit")
     fi
     if [[ "${OPTION,,}" =~ ^enable ]]; then
       systemctl enable --user --now sunshine.service
@@ -392,7 +387,6 @@ setup-sunshine ACTION="":
 [group('Apps')]
 _toggle-software-store ACTION="":
     #!/usr/bin/env bash
-    source /usr/lib/ujust/ujust.sh
 
     discover_apps=(
         "org.kde.discover.desktop"
@@ -429,9 +423,9 @@ _toggle-software-store ACTION="":
         echo "${bold}Software Store Toggle${normal}"
         echo "Currently active: $CURRENT_STATE_PRETTY"
         if [ "$CURRENT_STATE" == "discover" ]; then
-            OPTION=$(Choose "Switch to Bazaar" "Cancel")
+            OPTION=$(gum choose "Switch to Bazaar" "Cancel")
         else
-            OPTION=$(Choose "Switch to Discover" "Cancel")
+            OPTION=$(gum choose "Switch to Discover" "Cancel")
         fi
     fi
 
