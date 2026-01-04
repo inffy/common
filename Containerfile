@@ -57,6 +57,15 @@ RUN set -xeuo pipefail && \
     ln -sr /out/logos/usr/share/icons/hicolor/scalable/places/distributor-logo-symbolic.svg /out/logos/usr/share/icons/hicolor/scalable/places/start-here.svg && \
     ln -sr /out/logos/usr/share/icons/hicolor/scalable/places/distributor-logo-symbolic.svg /out/logos/usr/share/icons/hicolor/scalable/apps/start-here.svg
 
+RUN set -xeuo pipefail && \
+  mkdir -p /out/logos/usr/share/plymouth/themes/spinner/ && \
+  magick -background none /out/logos/usr/share/pixmaps/aurora-banner.svg -quality 90 -resize $((128-3*2))x32 -gravity center -extent 128x32 /out/logos/usr/share/plymouth/themes/spinner/watermark.png && \
+  cp /out/logos/usr/share/plymouth/themes/spinner/watermark.png /out/logos/usr/share/plymouth/themes/spinner/kinoite-watermark.png && \
+  mkdir -p /out/logos/usr/share/plasma/look-and-feel/dev.getaurora.aurora.desktop/contents/splash/images/ && \
+  gzip -c /out/logos/usr/share/icons/hicolor/scalable/distributor-logo.svg > /out/logos//usr/share/plasma/look-and-feel/dev.getaurora.aurora.desktop/contents/splash/images/aurora_logo.svgz && \
+  mkdir -p /out/logos/usr/share/sddm/themes/01-breeze-aurora/ && \
+  ln -sr /out/logos/usr/share/icons/hicolor/scalable/places/distributor-logo.svg /out/logos/usr/share/sddm/themes/01-breeze-aurora/default-logo.svg
+
 FROM scratch AS ctx
 COPY --from=ghcr.io/projectbluefin/common:latest /system_files/shared /system_files/shared
 COPY --from=builder /out/wallpapers /wallpapers
