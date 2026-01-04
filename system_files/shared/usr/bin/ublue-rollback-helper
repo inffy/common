@@ -53,7 +53,7 @@ function rebase_helper() {
     CHANNELS_RAW+=("${channel}")
   done
 
-  channel_choice=$(gum choose "${CHANNELS_DISPLAY[@]}" cancel)
+  channel_choice=$(gum choose "${CHANNELS_DISPLAY[@]}" "cancel")
   [[ "$channel_choice" == "cancel" ]] && exit 0
   channel_selected=${channel_choice%% *}
 
@@ -62,7 +62,7 @@ function rebase_helper() {
   # Step 3: Date selection (scoped to channel)
   echo "Would you like to pin to a specific build date?"
   echo "NOTICE! You won't receive any updates after pinning to a specific build date."
-  date_choice=$(gum choose "no" "yes" cancel)
+  date_choice=$(gum choose "no" "yes" "cancel")
   [[ "$date_choice" == "cancel" ]] && return 1
 
   if [[ "$date_choice" == "yes" ]]; then
