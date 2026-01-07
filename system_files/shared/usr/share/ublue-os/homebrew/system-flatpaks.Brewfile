@@ -1,20 +1,21 @@
-com.github.tchx84.Flatseal
-com.ranfdev.DistroShelf
-io.github.flattool.Warehouse
-io.github.kolunmi.Bazaar
-io.missioncenter.MissionCenter
-org.deskflow.deskflow
-org.fedoraproject.MediaWriter
-org.fkoehler.KTailctl
-org.gnome.DejaDup
-org.gtk.Gtk3theme.Breeze
-org.kde.gwenview
-org.kde.haruna
-org.kde.kcalc
-org.kde.kclock
-org.kde.kontact
-org.kde.kweather
-org.kde.okular
-org.kde.skanpage
-org.mozilla.Thunderbird
-org.mozilla.firefox
+# Default system-wide flatpaks for Aurora
+flatpak "com.github.tchx84.Flatseal"
+flatpak "com.ranfdev.DistroShelf"
+flatpak "io.github.flattool.Warehouse"
+flatpak "io.github.kolunmi.Bazaar"
+flatpak "io.missioncenter.MissionCenter"
+flatpak "org.deskflow.deskflow"
+flatpak "org.fedoraproject.MediaWriter"
+flatpak "org.fkoehler.KTailctl"
+flatpak "org.gnome.DejaDup"
+flatpak "org.gtk.Gtk3theme.Breeze"
+flatpak "org.kde.gwenview"
+flatpak "org.kde.haruna"
+flatpak "org.kde.kcalc"
+flatpak "org.kde.kclock"
+flatpak "org.kde.kontact"
+flatpak "org.kde.kweather"
+flatpak "org.kde.okular"
+flatpak "org.kde.skanpage"
+flatpak "org.mozilla.Thunderbird"
+flatpak "org.mozilla.firefox"
