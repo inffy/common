@@ -52,7 +52,7 @@ fi
 ### Error Handling
 Include basic error checking for critical operations:
 ```bash
-if [ ! -e "${SETUP_CHECKER_FILE}" ] ; then
+if [[ ! -e "${SETUP_CHECKER_FILE}" ]]; then
     mkdir -p "$(dirname "${SETUP_CHECKER_FILE}")"
     echo "{}" > "${SETUP_CHECKER_FILE}"
 fi
@@ -161,7 +161,7 @@ RUN install -d /out/shared/usr/share && \
   just --completions bash > /out/shared/usr/share/bash-completion/completions/ujust
 
 FROM scratch AS ctx
-COPY /system_files/shared /system_files/shared/
+COPY /system_files/shared /system_files/shared
 COPY /system_files/dx /system_files/dx
 COPY --from=build /out/shared /system_files/shared
 ```
