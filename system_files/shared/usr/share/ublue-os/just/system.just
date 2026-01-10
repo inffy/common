@@ -63,7 +63,7 @@ toggle-devmode:
     IMAGE_BASE_NAME="$(cut -f1 -d\- <<< "${IMAGE_NAME}")"
     set +e
 
-    if grep -q -E -e "dx$" <<< "${IMAGE_NAME}" ; then
+    if grep -q -- "-dx" <<< "${IMAGE_NAME}"; then
         gum confirm "Would you like to disable developer mode?" || exit 0
         echo "Rebasing to a non developer image"
         NEW_IMAGE="$(sed "s/\-dx//" <<< $CURRENT_IMAGE)"
