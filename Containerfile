@@ -21,8 +21,10 @@ RUN set -xeuo pipefail && \
 
 # Here we set our default wallpaper
 RUN set -xeuo pipefail && \
-    ln -sr /out/wallpapers/usr/share/backgrounds/aurora/aurora-wallpaper-10/contents/images/3840x2160.jxl /out/wallpapers/usr/share/backgrounds/default.jxl && \
-    ln -sr /out/wallpapers/usr/share/backgrounds/aurora/aurora-wallpaper-10/contents/images/3840x2160.jxl /out/wallpapers/usr/share/backgrounds/default-dark.jxl && \
+    REV=11 && \
+    ln -sr /out/wallpapers/usr/share/backgrounds/aurora/aurora-wallpaper-"${REV}"/contents/images/3840x2160.jxl /out/wallpapers/usr/share/backgrounds/default.jxl && \
+    ln -sr /out/wallpapers/usr/share/backgrounds/aurora/aurora-wallpaper-"${REV}"/contents/images/3840x2160.jxl /out/wallpapers/usr/share/backgrounds/default-dark.jxl && \
+    ln -sr /out/wallpapers/usr/share/backgrounds/aurora/aurora-wallpaper-"${REV}"/contents /out/wallpapers/usr/share/wallpapers/Aurora && \
     ln -sr /out/wallpapers/usr/share/backgrounds/aurora/aurora.xml /out/wallpapers/usr/share/backgrounds/default.xml
 
 RUN set -xeuo pipefail && \
@@ -62,7 +64,10 @@ RUN set -xeuo pipefail && \
   magick -background none /out/logos/usr/share/pixmaps/aurora-banner.svg -quality 90 -resize $((128-3*2))x32 -gravity center -extent 128x32 /out/logos/usr/share/plymouth/themes/spinner/watermark.png && \
   cp /out/logos/usr/share/plymouth/themes/spinner/watermark.png /out/logos/usr/share/plymouth/themes/spinner/kinoite-watermark.png && \
   mkdir -p /out/logos/usr/share/plasma/look-and-feel/dev.getaurora.aurora.desktop/contents/splash/images/ && \
-  gzip -c /out/logos/usr/share/icons/hicolor/scalable/distributor-logo.svg > /out/logos//usr/share/plasma/look-and-feel/dev.getaurora.aurora.desktop/contents/splash/images/aurora_logo.svgz && \
+  gzip -c /out/logos/usr/share/icons/hicolor/scalable/distributor-logo.svg > /out/logos/usr/share/plasma/look-and-feel/dev.getaurora.aurora.desktop/contents/splash/images/aurora_logo.svgz && \
+  curl -Lo /out/logos/usr/share/plasma/look-and-feel/dev.getaurora.aurora.desktop/contents/splash/images/busywidget.svgz https://invent.kde.org/plasma/plasma-workspace/-/raw/d3b5a422e586ee578efadfe462d0d0b5546aaa3b/lookandfeel/org.kde.breeze/contents/splash/images/busywidget.svgz && \
+  curl -Lo /out/logos/usr/share/plasma/look-and-feel/dev.getaurora.aurora.desktop/contents/splash/images/kde.svgz https://invent.kde.org/plasma/plasma-workspace/-/raw/d3b5a422e586ee578efadfe462d0d0b5546aaa3b/lookandfeel/org.kde.breeze/contents/splash/images/kde.svgz && \
+  curl -Lo /out/logos/usr/share/plasma/look-and-feel/dev.getaurora.aurora.desktop/contents/splash/images/plasma.svgz https://invent.kde.org/plasma/plasma-workspace/-/raw/d3b5a422e586ee578efadfe462d0d0b5546aaa3b/lookandfeel/org.kde.breeze/contents/splash/images/plasma.svgz && \
   mkdir -p /out/logos/usr/share/sddm/themes/01-breeze-aurora/ && \
   ln -sr /out/logos/usr/share/icons/hicolor/scalable/places/distributor-logo.svg /out/logos/usr/share/sddm/themes/01-breeze-aurora/default-logo.svg
 
