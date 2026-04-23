@@ -21,7 +21,7 @@ RUN set -xeuo pipefail && \
 
 # Here we set our default wallpaper
 RUN set -xeuo pipefail && \
-    REV=3 && \
+    REV=12 && \
     ln -sr /out/wallpapers/usr/share/backgrounds/aurora/aurora-wallpaper-"${REV}"/contents/images/3840x2160.jxl /out/wallpapers/usr/share/backgrounds/default.jxl && \
     ln -sr /out/wallpapers/usr/share/backgrounds/aurora/aurora-wallpaper-"${REV}"/contents/images/3840x2160.jxl /out/wallpapers/usr/share/backgrounds/default-dark.jxl && \
     ln -sr /out/wallpapers/usr/share/backgrounds/aurora/aurora-wallpaper-"${REV}" /out/wallpapers/usr/share/wallpapers/Aurora && \
